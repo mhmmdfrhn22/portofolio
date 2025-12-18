@@ -1,4 +1,5 @@
 import About from "./about/cozy/about";
+import Achievements from "./achievements/modern/achievement";
 import Contact from "./contact/cozy/contact";
 import Experience from "./experience/modern/experience";
 import Footer from "./footer/modern/footer";
@@ -17,6 +18,7 @@ export {
   Skills,
   Technologies,
   Experience,
+  Achievements,
   Testimonials,
   Contact,
   Footer,

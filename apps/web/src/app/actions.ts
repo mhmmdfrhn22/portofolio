@@ -19,16 +19,15 @@ export const contactSubmit = actionClient
       token?: string;
     };
 
-    if (!data.token)
-      throw new ActionError(
-        "Captcha validation failed. Please ensure the captcha is completed.",
-      );
-    const res = await validateTurnstileToken(data.token);
+    // Skip Turnstile validation jika tidak di-set atau token adalah "bypass"
+    if (env.TURNSTILE_SECRET_KEY && data.token && data.token !== "bypass") {
+      const res = await validateTurnstileToken(data.token);
 
-    if (!res.success) {
-      throw new ActionError(
-        "Captcha validation failed. Please ensure the captcha is completed.",
-      );
+      if (!res.success) {
+        throw new ActionError(
+          "Captcha validation failed. Please ensure the captcha is completed.",
+        );
+      }
     }
 
     return next();

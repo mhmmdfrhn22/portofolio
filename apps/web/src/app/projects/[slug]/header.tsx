@@ -26,7 +26,17 @@ interface HeaderProps {
 
 const Header = (props: HeaderProps) => {
   const {
-    metadata: { title, description, website, github, tags, date },
+    metadata: {
+      title,
+      description,
+      website,
+      github,
+      filefigma,
+      preview,
+      prototype,
+      tags,
+      date,
+    },
   } = props;
 
   return (
@@ -55,6 +65,7 @@ const Header = (props: HeaderProps) => {
             href={website}
             className={cn(buttonVariants(), "group")}
             target="_blank"
+            rel="noopener noreferrer"
           >
             Visit Website
             <Icons.arrowUpRight className="ml-2 size-5" />
@@ -65,8 +76,42 @@ const Header = (props: HeaderProps) => {
             href={github}
             className={cn(buttonVariants(), "group")}
             target="_blank"
+            rel="noopener noreferrer"
           >
             Github
+            <Icons.arrowUpRight className="ml-2 size-5" />
+          </a>
+        )}
+        {filefigma && (
+          <a
+            href={filefigma}
+            className={cn(buttonVariants(), "group")}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            File Figma
+            <Icons.arrowUpRight className="ml-2 size-5" />
+          </a>
+        )}
+        {preview && (
+          <a
+            href={preview}
+            className={cn(buttonVariants(), "group")}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Preview
+            <Icons.arrowUpRight className="ml-2 size-5" />
+          </a>
+        )}
+        {prototype && (
+          <a
+            href={prototype}
+            className={cn(buttonVariants(), "group")}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Prototype
             <Icons.arrowUpRight className="ml-2 size-5" />
           </a>
         )}

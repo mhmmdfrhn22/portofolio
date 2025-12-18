@@ -22,7 +22,7 @@ function Hero() {
           className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center"
           height="450"
           sizes="100vw"
-          src={"/images/hero.jpg"}
+          src={"/images/hero.png"}
           width="800"
           priority
         />

@@ -21,7 +21,7 @@ const links: Link[] = [
     thumbnail: "projects.jpg",
   },
   {
-    title: "Blog",
+    title: "Gallery",
     href: "/blog",
     thumbnail: "blog.jpg",
   },

@@ -27,13 +27,18 @@ export function TurnstileModal({ open, callback }: TurnstileModalProps) {
     "success" | "error" | "expired" | "required"
   >("required");
 
-  if (
-    !env.NEXT_PUBLIC_CONTACT_FORM_ENABLED ||
-    !env.NEXT_PUBLIC_TURNSTILE_SITE_KEY
-  ) {
-    return <div className="mt-4">
-      <FormError message={"This contact form is misconfigured. Please check the form settings and try again."} />
-    </div>;
+  // Jika Turnstile tidak di-set, langsung callback tanpa token (bypass captcha)
+  if (!env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) {
+    if (open) {
+      // Auto-verify jika Turnstile tidak di-set
+      setTimeout(() => callback("bypass"), 100);
+    }
+    return null;
+  }
+
+  // Jika contact form tidak diaktifkan, jangan tampilkan modal
+  if (!env.NEXT_PUBLIC_CONTACT_FORM_ENABLED) {
+    return null;
   }
 
   return (

@@ -33,7 +33,7 @@ function ProjectCard({
   return (
     <Card
       className={cn(
-        "relative flex h-full flex-col justify-between border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900",
+        "relative flex h-full flex-col justify-between border border-zinc-950/10 bg-white",
         className,
       )}
     >
@@ -53,10 +53,7 @@ function ProjectCard({
           <TextReveal className="text-xl font-bold" as="h1">
             {title}
           </TextReveal>
-          <TextReveal
-            as="p"
-            className="text-sm text-gray-500 dark:text-gray-400"
-          >
+          <TextReveal as="p" className="text-sm text-gray-500">
             {description ?? ""}
           </TextReveal>
           <div className="mt-2 flex flex-wrap gap-2">
@@ -72,7 +69,7 @@ function ProjectCard({
             <TooltipTrigger asChild>
               <Button
                 variant="ghost"
-                className="z-2 rounded-md border border-zinc-950/10 dark:border-zinc-50/10"
+                className="z-2 rounded-md border border-zinc-950/10"
                 asChild
               >
                 <Link href={href}>

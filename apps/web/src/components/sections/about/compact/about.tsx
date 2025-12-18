@@ -17,14 +17,14 @@ function About() {
             </h2>
             <div className="space-y-4">
               <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                I am a passionate and creative Web Developer with a love for
-                beautiful and functional websites. I have experience working
-                with a variety of web technologies and frameworks and I am
-                always eager to learn new things and take on new challenges.
+                Farhan adalah seorang UI/UX Designer yang kreatif dan senang bikin desain
+                yang keren dan gampang digunakan. Udah pengalaman bikin website
+                yang nggak cuma cakep, tapi juga fungsional. Farhan juga jago
+                mainin berbagai tools web dan desain grafis.
               </p>
               <div className="flex gap-2">
                 <Button asChild variant={"outline"}>
-                  <a href="resume.pdf" target="_blank">
+                  <a href="https://drive.google.com/file/d/1lRlqd9JoxUP4vb9ToUUPS64GgZ9xSJsQ/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                     View Resume <Icons.arrowUpRight className="ml-2 size-5" />
                   </a>
                 </Button>

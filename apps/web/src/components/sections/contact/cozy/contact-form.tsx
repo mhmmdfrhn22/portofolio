@@ -44,7 +44,12 @@ export default function ContactForm() {
   // values: ContactFormType
   function onSubmit(values: ContactFormType) {
     if (env.NEXT_PUBLIC_CONTACT_FORM_ENABLED === "true") {
-      setIsOpen(true);
+      // Jika Turnstile tidak di-set, langsung submit tanpa captcha
+      if (!env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) {
+        execute({ ...values, token: "bypass" });
+      } else {
+        setIsOpen(true);
+      }
     } else {
       const mailto =
         `mailto:${encodeURIComponent(contact.email)}` +

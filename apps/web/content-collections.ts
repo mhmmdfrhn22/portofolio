@@ -15,6 +15,9 @@ const projects = defineCollection({
       ...docSchema,
       website: z.string().optional(),
       github: z.string().optional(),
+      filefigma: z.string().optional(),
+      preview: z.string().optional(),
+      prototype: z.string().optional(),
       tags: z
         .array(
           z.object({
@@ -49,42 +52,6 @@ const projectMetas = defineCollection({
   schema: createMetaSchema,
 });
 
-const blog = defineCollection({
-  name: "blog",
-  directory: "content/blog",
-  include: "**/*.mdx",
-  schema: (z) => {
-    const docSchema = createDocSchema(z);
-    return {
-      ...docSchema,
-      author: z.string(),
-      date: z
-        .string()
-        .or(z.date())
-        .transform((value, context) => {
-          try {
-            return new Date(value);
-          } catch {
-            context.addIssue({
-              code: z.ZodIssueCode.custom,
-              message: "Invalid date",
-            });
-            return z.NEVER;
-          }
-        }),
-    };
-  },
-  transform: transformMDX,
-});
-
-const blogMetas = defineCollection({
-  name: "blogMeta",
-  directory: "content/blog",
-  include: "**/meta.json",
-  parser: "json",
-  schema: createMetaSchema,
-});
-
 export default defineConfig({
-  collections: [projects, projectMetas, blog, blogMetas],
+  collections: [projects, projectMetas],
 });

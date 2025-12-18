@@ -48,7 +48,7 @@ export default function Footer() {
           animate="enter"
           exit="exit"
         >
-          Blog
+          Gallery
         </motion.li>
         <motion.li
           custom={[0.3, 0]}

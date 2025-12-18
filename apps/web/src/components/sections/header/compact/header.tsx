@@ -2,9 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { metadata as meta } from "@/app/config";
-import { UserButton } from "@/components/auth/user-button";
 import Link from "@/components/fancy/link";
-import ThemeToggle from "@/components/mode-toggle";
 import { linkLimit, links } from "@/components/sections/header/config";
 import { motion } from "motion/react";
 
@@ -131,10 +129,6 @@ export default function Header() {
                   </DropdownMenu>
                 )}
               </div>
-              <div className="flex items-center gap-2">
-                <UserButton />
-                <ThemeToggle />
-              </div>
             </nav>
           </div>
         </div>
@@ -160,9 +154,6 @@ export default function Header() {
               {title}
             </Link>
           ))}
-          <div className="flex w-full items-center justify-end">
-            <ThemeToggle />
-          </div>
         </div>
       </motion.div>
     </motion.header>

@@ -1,6 +1,7 @@
 import Cursor from "@/components/cursor/cursor";
 import {
   About,
+  Achievements,
   Contact,
   Experience,
   Footer,
@@ -8,7 +9,6 @@ import {
   Hero,
   Projects,
   Skills,
-  Testimonials,
 } from "@/components/sections";
 import SmoothScroll from "@/components/smooth-scroll";
 
@@ -21,9 +21,9 @@ export default function Home() {
           <Hero />
           <About />
           <Skills />
-          <Projects />
           <Experience />
-          <Testimonials />
+          <Achievements />
+          <Projects />
           <Contact />
         </main>
         <footer>

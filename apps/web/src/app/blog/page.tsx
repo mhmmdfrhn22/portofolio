@@ -1,15 +1,15 @@
-import type { Blog, WithContext } from "schema-dts";
+import type { CollectionPage, WithContext } from "schema-dts";
 import React from "react";
-import PostCard from "@/app/blog/_components/post-card";
+import GalleryCard from "@/app/blog/_components/gallery-card";
 import { metadata as meta } from "@/app/config";
-import { blog } from "@/app/source";
 import Line from "@/components/fancy/line";
 import TextReveal from "@/components/fancy/text-reveal";
-import { contact } from "@/components/sections/contact/config";
 import { createMetadata } from "@/lib/metadata";
 
-const title = "Blog";
-const description = "My thoughts on technology.";
+import { galleryImages } from "./config";
+
+const title = "Gallery";
+const description = "Koleksi hasil design saya.";
 
 export const metadata = createMetadata({
   title,
@@ -25,25 +25,20 @@ export const metadata = createMetadata({
   },
 });
 
-const jsonLd: WithContext<Blog> = {
+const jsonLd: WithContext<CollectionPage> = {
   "@context": "https://schema.org",
-  "@type": "Blog",
+  "@type": "CollectionPage",
   name: title,
   description,
   url: `${meta.site.url}/blog`,
-  author: {
-    "@type": "Person",
-    name: meta.author.name,
+  isPartOf: {
+    "@type": "WebSite",
+    name: meta.site.title,
     url: meta.site.url,
-    sameAs: [...contact.socials.map((social) => social.href)],
   },
 };
 
-export default function BlogPage(): React.ReactElement {
-  const posts = [...blog.getPages()].sort(
-    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
-  );
-
+export default function GalleryPage(): React.ReactElement {
   return (
     <main className="my-14 flex-1">
       <script
@@ -60,20 +55,17 @@ export default function BlogPage(): React.ReactElement {
             as="h1"
             className="leading-wide tracking-relaxed text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            Blog
+            Gallery
           </TextReveal>
           <Line className={"mt-16"} />
         </div>
       </section>
       <section className="grid w-full grid-cols-1 gap-4 p-4 md:grid-cols-2 2xl:grid-cols-3">
-        {posts.map((post, index) => (
-          <PostCard
-            title={post.data.title}
-            href={post.url}
-            description={post.data.description}
-            key={`post_${index}`}
-            date={post.data.date}
-            thumbnail={`/images/blog/${post.slugs[0]}/cover.jpg`}
+        {galleryImages.map((image, index) => (
+          <GalleryCard
+            image={image}
+            alt={`Gallery image ${index + 1}`}
+            key={`gallery_${index}`}
           />
         ))}
       </section>

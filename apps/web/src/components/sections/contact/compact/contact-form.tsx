@@ -5,6 +5,8 @@ import { contactSubmit } from "@/app/actions";
 import { FormError } from "@/components/sections/contact/_components/form-error";
 import { FormSuccess } from "@/components/sections/contact/_components/form-success";
 import { TurnstileModal } from "@/components/sections/contact/_components/turnstile-modal";
+import { contact } from "@/components/sections/contact/config";
+import { env } from "@/env";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAction } from "next-safe-action/hooks";
 import { useForm } from "react-hook-form";
@@ -40,8 +42,23 @@ export default function ContactForm() {
 
   // todo: probably refactor this, setIsOpen is not clean
   // values: ContactFormType
-  function onSubmit() {
-    setIsOpen(true);
+  function onSubmit(values: ContactFormType) {
+    if (env.NEXT_PUBLIC_CONTACT_FORM_ENABLED === "true") {
+      // Jika Turnstile tidak di-set, langsung submit tanpa captcha
+      if (!env.NEXT_PUBLIC_TURNSTILE_SITE_KEY) {
+        execute({ ...values, token: "bypass" });
+      } else {
+        setIsOpen(true);
+      }
+    } else {
+      const mailto =
+        `mailto:${encodeURIComponent(contact.email)}` +
+        `?subject=${encodeURIComponent("Contact Form Submission")}` +
+        `&body=${encodeURIComponent(
+          `Name: ${values.name}\nMessage: ${values.message}`,
+        )}`;
+      window.open(mailto);
+    }
   }
 
   function onVerify(token?: string) {

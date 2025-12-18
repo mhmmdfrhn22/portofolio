@@ -15,11 +15,10 @@ function Experiences() {
               as="h2"
               className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl/none"
             >
-              My Experience
+              My Experience💼
             </TextReveal>
             <TextReveal as="p" className="text-gray-500 dark:text-gray-400">
-              Here are some of my work experiences where I&apos;ve turned
-              challenges into accomplishments, making things happen.
+            Berikut adalah beberapa pengalaman kerja saya di berbagai usaha dan organisasi selama saya sekolah.
             </TextReveal>
           </div>
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">

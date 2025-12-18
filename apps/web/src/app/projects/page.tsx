@@ -45,8 +45,13 @@ const jsonLd: WithContext<CollectionPage> = {
 };
 
 export default function ProjectsPage(): React.ReactElement {
+  const toTimestamp = (value: unknown) => {
+    const time = new Date(value as any).getTime();
+    return Number.isNaN(time) ? 0 : time;
+  };
+
   const projects = [...project.getPages()].sort(
-    (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+    (a, b) => toTimestamp(b.data.date) - toTimestamp(a.data.date),
   );
 
   return (
@@ -65,7 +70,7 @@ export default function ProjectsPage(): React.ReactElement {
             as="h1"
             className="leading-wide tracking-relaxed text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            My Projects
+            Projek Saya
           </TextReveal>
 
           <Line className={"mt-16"} />
@@ -79,7 +84,7 @@ export default function ProjectsPage(): React.ReactElement {
             description={project.data.description}
             key={`project_${index}`}
             tags={project.data.tags}
-            thumbnail={`/images/projects/${project.slugs[0]}/cover.jpg`}
+            thumbnail={`/images/projects/${project.data.title}.png`}
           />
         ))}
       </section>

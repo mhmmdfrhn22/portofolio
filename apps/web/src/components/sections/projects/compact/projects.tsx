@@ -49,7 +49,7 @@ function Projects() {
                         href={project.url}
                         description={project.data.description}
                         tags={project.data.tags}
-                        thumbnail={`/images/projects/${project.slugs[0]}/cover.jpg`}
+                        thumbnail={`/images/projects/${project.data.title}.png`}
                       />
                     </div>
                   </CarouselItem>
