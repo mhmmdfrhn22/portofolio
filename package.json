@@ -49,8 +49,5 @@
       "prettier --write --ignore-unknown"
     ]
   },
-  "prettier": "@repo/prettier-config",
-  "dependencies": {
-    "next": "^16.0.10"
-  }
+  "prettier": "@repo/prettier-config"
 }
