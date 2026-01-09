@@ -27,6 +27,14 @@ const achievements: Achievement[] = [
   },
   {
     title: "Juara 2 UI Web Design",
+    issuer: "DINAMIK 20 UPI",
+    year: "2025",
+    description:
+      "Membuat Design Website Tracking Emisi Karbon Sehari Hari Untuk Para Masyarakat",
+    image: "/images/Achievements/DEFAULTFOTO.png",
+  },
+  {
+    title: "Juara 2 UI Web Design",
     issuer: "SITEFEST Primakara",
     year: "2025",
     description:
