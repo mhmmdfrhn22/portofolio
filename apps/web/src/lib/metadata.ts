@@ -50,8 +50,8 @@ export function createMetadata(override: Metadata): Metadata {
       ...override.twitter,
     },
     icons: {
-      icon: "/favicon/favicon.svg",
-      shortcut: "/favicon/favicon.svg",
+      icon: "/Logofarhanfym.svg",
+      shortcut: "/Logofarhanfym.svg",
       apple: [
         {
           url: "/favicon/apple-touch-icon.png",
@@ -64,13 +64,13 @@ export function createMetadata(override: Metadata): Metadata {
           rel: "icon",
           type: "image/png",
           sizes: "16x16",
-          url: "/favicon/favicon-16x16.png",
+          url: "/Logofarhanfym.svg",
         },
         {
           rel: "icon",
           type: "image/png",
           sizes: "32x32",
-          url: "/favicon/favicon-32x32.png",
+          url: "/Logofarhanfym.svg",
         },
       ],
     },

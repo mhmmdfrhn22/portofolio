@@ -53,13 +53,13 @@ export default function About() {
             as="h1"
             className="leading-wide tracking-relaxed text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            Tapi Devloper
+            Designer
           </TextReveal>
           <TextReveal
             as="h1"
             className="leading-wide tracking-relaxed text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl"
           >
-            Designer
+            Tapi Devloper
           </TextReveal>
           <motion.div
             className="mt-8"
